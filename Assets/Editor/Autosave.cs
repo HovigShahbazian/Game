@@ -7,7 +7,7 @@ public class Autosave
 {
     static Autosave()
     {
-        EditorApplication.playmodeStateChanged += () =>
+        EditorApplication.playModeStateChanged += (Playmode) =>
         {
             if (EditorApplication.isPlayingOrWillChangePlaymode && !EditorApplication.isPlaying)
             {
