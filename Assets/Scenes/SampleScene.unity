@@ -826,10 +826,10 @@ MonoBehaviour:
     buildings: []
     townInteraction:
       Source: 
-      Effected: 
+      Effected: test
       nodeInteraction: 0
       stat: 0
-      UpdateValue: 0
+      UpdateValue: 5
   TownName: test
 --- !u!4 &1400171575
 Transform:
@@ -1168,10 +1168,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2124568575}
-  - component: {fileID: 2124568577}
   - component: {fileID: 2124568576}
+  - component: {fileID: 2124568577}
   m_Layer: 5
-  m_Name: EventTimer
+  m_Name: WorldUpdateTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1223,6 +1223,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRepeating: 1
   timeToWait: 5
-  StartTimerEvent: 
+  StartTimerEvent: StartWorldUpdate
   TimerStartedEvent: 
   TimerFinishedEvent: WorldUpdate

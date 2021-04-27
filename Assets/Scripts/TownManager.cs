@@ -57,9 +57,11 @@ public class TownManager : MonoBehaviour
 			foreach (TownStatus t in initialTowns)
 			{
 				townDictionary.Add(t.town.name, t);
+				townInteractions.Add(t.town.name, t.townInteraction);
 			}
 
-			EventManager.StartListening("WorldUpdate", UpdateAllTowns);
+
+			//EventManager.StartListening("WorldUpdate", UpdateAllTowns);
 			EventManager.StartListening("WorldUpdate", UpdateAllTownsInteractions);
 		}
 	}

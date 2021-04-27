@@ -1,6 +1,7 @@
 ﻿
-using UnityEngine;
 
+
+[System.Serializable]
 public struct NPCStats
 {
     public int Strength;
@@ -11,7 +12,7 @@ public struct NPCStats
     public int Charisma;
 }
 
-
+[System.Serializable]
 public struct Mission
 {
     public MissionType missionType;
@@ -68,7 +69,9 @@ public class WorldNode
 [System.Serializable]
 public struct Person
 {
-  
+    public string name;
+    public NPCStats nPCStats;
+    public NPC_Job _Job;
 }
 
 [System.Serializable]

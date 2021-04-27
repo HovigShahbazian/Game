@@ -12,7 +12,7 @@ public enum NPC_AGREEABLENESS { }
 public enum NPC_INTERACTIVITY { }
 public enum NPC_CONFORMITY { }
 
-public enum NPC_Job { Farmer, Builder, Doctor, Trader, Transporter, InnKeeper, Merchant, Soldier }
+public enum NPC_Job { Unemployed, Farmer, Builder, Doctor, Trader, Transporter, InnKeeper, Merchant, Soldier }
 
 public enum NPC_Interactions { Talk, Fight, Trade, Heal, Search, Examine }
 
