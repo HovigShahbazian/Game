@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class TownManager : MonoBehaviour
 {
 	[SerializeField]
@@ -14,6 +15,7 @@ public class TownManager : MonoBehaviour
 
 	public string TownName;
 
+	//Town Graph
 
 	public void EndEdit(string townName)
 	{

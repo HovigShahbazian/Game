@@ -1,9 +1,12 @@
 ﻿
 
 
+using UnityEngine;
+
 [System.Serializable]
 public struct NPCStats
 {
+    [Range(0,100)]
     public int Strength;
     public int Dexterity;
     public int Constution;
@@ -67,9 +70,9 @@ public class WorldNode
 
 
 [System.Serializable]
-public struct Person
+public class Person
 {
-    public string name;
+    public string name = "jeff";
     public NPCStats nPCStats;
     public NPC_Job _Job;
 }
