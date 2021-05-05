@@ -804,8 +804,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialTowns:
-  - town:
-      name: test
+  - name: Test
+    food: 0
+    Population: 0
+    wealth: 0
+    Metals: 0
+    stone: 0
+    fuel: 0
+    oil: 0
+    techLevel: 0
+    ScienceLevel: 0
+    EducationLevel: 0
+    transportationLevel: 0
+    GovernmentLevel: 0
+    Securitylvl: 0
+    fooddistributionLevel: 0
+    Healthlvl: 0
+    medecineLevel: 0
+  initialInteraction:
+  - Source:
+      name: Tester
       food: 0
       Population: 0
       wealth: 0
@@ -822,15 +840,137 @@ MonoBehaviour:
       fooddistributionLevel: 0
       Healthlvl: 0
       medecineLevel: 0
-    people: []
-    buildings: []
-    townInteraction:
-      Source: 
-      Effected: test
+    Effected:
+      name: Test
+      food: 0
+      Population: 0
+      wealth: 0
+      Metals: 0
+      stone: 0
+      fuel: 0
+      oil: 0
+      techLevel: 0
+      ScienceLevel: 0
+      EducationLevel: 0
+      transportationLevel: 0
+      GovernmentLevel: 0
+      Securitylvl: 0
+      fooddistributionLevel: 0
+      Healthlvl: 0
+      medecineLevel: 0
+    nodeInteraction: 1
+    stat: 0
+    UpdateValue: 5
+  towngraph:
+    _nodes:
+    - name: 
+      food: 0
+      Population: 0
+      wealth: 0
+      Metals: 0
+      stone: 0
+      fuel: 0
+      oil: 0
+      techLevel: 0
+      ScienceLevel: 0
+      EducationLevel: 0
+      transportationLevel: 0
+      GovernmentLevel: 0
+      Securitylvl: 0
+      fooddistributionLevel: 0
+      Healthlvl: 0
+      medecineLevel: 0
+    - name: 
+      food: 0
+      Population: 0
+      wealth: 0
+      Metals: 0
+      stone: 0
+      fuel: 0
+      oil: 0
+      techLevel: 0
+      ScienceLevel: 0
+      EducationLevel: 0
+      transportationLevel: 0
+      GovernmentLevel: 0
+      Securitylvl: 0
+      fooddistributionLevel: 0
+      Healthlvl: 0
+      medecineLevel: 0
+    - name: 
+      food: 0
+      Population: 0
+      wealth: 0
+      Metals: 0
+      stone: 0
+      fuel: 0
+      oil: 0
+      techLevel: 0
+      ScienceLevel: 0
+      EducationLevel: 0
+      transportationLevel: 0
+      GovernmentLevel: 0
+      Securitylvl: 0
+      fooddistributionLevel: 0
+      Healthlvl: 0
+      medecineLevel: 0
+    - name: 
+      food: 0
+      Population: 0
+      wealth: 0
+      Metals: 0
+      stone: 0
+      fuel: 0
+      oil: 0
+      techLevel: 0
+      ScienceLevel: 0
+      EducationLevel: 0
+      transportationLevel: 0
+      GovernmentLevel: 0
+      Securitylvl: 0
+      fooddistributionLevel: 0
+      Healthlvl: 0
+      medecineLevel: 0
+    _edges:
+    - Source:
+        name: 
+        food: 0
+        Population: 0
+        wealth: 0
+        Metals: 0
+        stone: 0
+        fuel: 0
+        oil: 0
+        techLevel: 0
+        ScienceLevel: 0
+        EducationLevel: 0
+        transportationLevel: 0
+        GovernmentLevel: 0
+        Securitylvl: 0
+        fooddistributionLevel: 0
+        Healthlvl: 0
+        medecineLevel: 0
+      Effected:
+        name: 
+        food: 0
+        Population: 0
+        wealth: 0
+        Metals: 0
+        stone: 0
+        fuel: 0
+        oil: 0
+        techLevel: 0
+        ScienceLevel: 0
+        EducationLevel: 0
+        transportationLevel: 0
+        GovernmentLevel: 0
+        Securitylvl: 0
+        fooddistributionLevel: 0
+        Healthlvl: 0
+        medecineLevel: 0
       nodeInteraction: 0
       stat: 0
-      UpdateValue: 5
-  TownName: test
+      UpdateValue: 0
 --- !u!4 &1400171575
 Transform:
   m_ObjectHideFlags: 0

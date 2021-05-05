@@ -5,21 +5,23 @@ using UnityEngine;
 
 public class TownManager : MonoBehaviour
 {
-	[SerializeField]
-	private Dictionary<string, TownStatus> townDictionary;
 
-	private Dictionary<string, TownInteraction> townInteractions;
+	private Dictionary<SiteName, Town> townDictionary;
 
-	[SerializeField]
-	public TownStatus[] initialTowns;
+	private Dictionary<SiteName, TownInteraction> townInteractions;
 
-	public string TownName;
 
-	//Town Graph
+	public Town[] initialTowns;
+
+	public TownInteraction[] initialInteraction;
+
+
+	public TownGraph towngraph;
+
 
 	public void EndEdit(string townName)
 	{
-		TownName = townName;
+		//TownName = townName;
 	}
 
 
@@ -53,13 +55,17 @@ public class TownManager : MonoBehaviour
 	{
 		if (townDictionary == null)
 		{
-			townDictionary = new Dictionary<string, TownStatus>();
-			townInteractions = new Dictionary<string, TownInteraction>();
+			townDictionary = new Dictionary<SiteName, Town>();
+			townInteractions = new Dictionary<SiteName, TownInteraction>();
 
-			foreach (TownStatus t in initialTowns)
+			foreach (Town t in initialTowns)
 			{
-				townDictionary.Add(t.town.name, t);
-				townInteractions.Add(t.town.name, t.townInteraction);
+				townDictionary.Add(t.name, t);
+			}
+
+			foreach (TownInteraction t in initialInteraction)
+			{
+				townInteractions.Add(t.Effected, t);
 			}
 
 
@@ -77,51 +83,51 @@ public class TownManager : MonoBehaviour
 
 
 
-    public static void AddInteraction(string townName, ref TownInteraction interaction)
+    public static void AddInteraction(SiteName townName, ref TownInteraction interaction)
 	{
 		
 			instance.townInteractions.Add(townName, interaction);
 
 	}
 
-	public static void RemoveInteraction(string interactionName, ref TownInteraction interaction)
+	public static void RemoveInteraction(SiteName townName, ref TownInteraction interaction)
 	{
-		if (!instance.townInteractions.TryGetValue(interactionName, out interaction))
+		if (!instance.townInteractions.TryGetValue(townName, out interaction))
 		{
-			instance.townInteractions.Remove(interactionName);
+			instance.townInteractions.Remove(townName);
 		}
 	}
 
-	public static void AddTown(string townName, TownStatus townstatus)
+	public static void AddTown(SiteName townName, Town town)
 	{
-		instance.townDictionary.Add(townName, townstatus);
+		instance.townDictionary.Add(townName, town);
 	}
 
-	public void AddTown(string townName)
+	public void AddTown(SiteName townName)
 	{
-		instance.townDictionary.Add(townName, new TownStatus());
+		instance.townDictionary.Add(townName, new Town());
 	}
 
-	public  Town GetTown(string townName)
+	public  Town GetTown(SiteName townName)
 	{
-		return instance.townDictionary[townName].town;
+		return instance.townDictionary[townName];
 	}
 
 
-	public static void RemoveTown(string townName, TownStatus townstatus)
+	public static void RemoveTown(SiteName townName, Town town)
 	{
 		if (townManager == null) return;
 
-		if (instance.townDictionary.TryGetValue(townName, out townstatus))
+		if (instance.townDictionary.TryGetValue(townName, out town))
 		{
 			instance.townDictionary.Remove(townName);
 		}
 	}
 
-	public static void TriggerEvent(string townName)
+	public static void TriggerEvent(SiteName townName)
 	{
-		TownStatus townStatus = null;
-		if (instance.townDictionary.TryGetValue(townName, out townStatus))
+		Town town= null;
+		if (instance.townDictionary.TryGetValue(townName, out town))
 		{
 			//townStatus.FdIncrease++;
 		}
@@ -130,9 +136,9 @@ public class TownManager : MonoBehaviour
 
 	public static void UpdateAllTowns()
 	{
-		foreach (TownStatus t in instance.townDictionary.Values)
+		foreach (Town t in instance.townDictionary.Values)
 		{
-			t.town.food++;
+			t.food++;
 		}
 	}
 
@@ -140,19 +146,19 @@ public class TownManager : MonoBehaviour
 	{
 		foreach( TownInteraction t in instance.townInteractions.Values)
 		{
-			TownStatus townStatus = null;
-			if (instance.townDictionary.TryGetValue(t.Effected, out townStatus))
+			Town town = null;
+			if (instance.townDictionary.TryGetValue(t.Effected, out town))
 			{
 				switch (t.stat)
 				{
-					case TownStats.Food:
-						townStatus.town.food += t.UpdateValue;
+					case SiteStats.Food:
+						town.food += t.UpdateValue;
 						break;
-					case TownStats.Population:
-						townStatus.town.Population += t.UpdateValue;
+					case SiteStats.Population:
+						town.Population += t.UpdateValue;
 						break;						
-					case TownStats.Wealth:
-						townStatus.town.wealth += t.UpdateValue;
+					case SiteStats.Wealth:
+						town.wealth += t.UpdateValue;
 						break;
 				}
 				

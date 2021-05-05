@@ -1,10 +1,13 @@
 ﻿
-
+using UnityEngine;
 
 using System.Collections.Generic;
+using System;
 
+[Serializable]
 public class Node<T>
 {
+    [SerializeField]
     private T _data;
 
     public Node(T data)
@@ -13,7 +16,7 @@ public class Node<T>
     } 
 }
 
-
+[Serializable]
 public class Edge<T,D>
 {
     private Node<T> _start;
@@ -31,19 +34,64 @@ public class Edge<T,D>
 }
 
 
-
+[Serializable]
 public abstract class Graph<T,D>
 {
-    private Node<T>[] _nodes;
-    private Edge<T,D>[] _edges;
+   
+    public abstract void AddNode(T Node);
 
-    public abstract void addNode();
+    public abstract void RemoveNode(T Node);
 
-    public abstract void removeNode();
+    public abstract void GetNode(T Node);
 
 
-    public abstract void addEdge();
+    public abstract void AddEdge(D Edge);
 
-    public abstract void removeEdge();
+    public abstract void RemoveEdge(D Edge);
 
+
+    public abstract void GetEdge(D Edge);
+
+
+}
+
+[Serializable]
+public class TownGraph 
+{
+    
+    public Town[] _nodes;
+
+  
+    public TownInteraction[] _edges;
+
+
+    public void AddEdge(TownInteraction Edge)
+    {
+        
+    }
+
+    public void AddNode(Town Node)
+    {
+        
+    }
+
+    public void GetEdge(TownInteraction Edge)
+    {
+       
+    }
+
+    public void GetNode(Town Node)
+    {
+ 
+    }
+
+    public void RemoveEdge(TownInteraction Edge)
+    {
+
+    }
+
+    public void RemoveNode(Town Node)
+    {
+       
+    }
 }

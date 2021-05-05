@@ -35,15 +35,15 @@ public struct Job_Task
 
 
 [System.Serializable]
-public struct Town
+public class Town
 {
-    public string name;
+    public const SiteType _type = SiteType.Town;
+
+    public SiteName name;
     public float food;
     public int Population;
-    public int wealth;
     public int Metals;
     public int stone;
-    public int fuel;
     public int oil;
 
 
@@ -64,7 +64,7 @@ public struct Town
 [System.Serializable]
 public class WorldNode
 {
-    Site worldNodeType;
+    SiteType worldNodeType;
     Geography enviromentNodeType;
 }
 
@@ -93,22 +93,12 @@ public struct Building
 }
 
 [System.Serializable]
-public struct TownInteraction
+public class TownInteraction
 {
-    public string Source;
-    public string Effected;
+    public SiteName Source;
+    public SiteName Effected;
     public NodeInteraction nodeInteraction;
-    public TownStats stat;
+    public SiteStats stat;
     public int UpdateValue;
 }
 
-
-
-public struct TownTimerUpdate
-{
-    float timeLeft;
-    float TimeMax;
-    string townName;
-    int UpdateValue;
-    int UpdateStatEnum;
-}
